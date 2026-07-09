@@ -8,10 +8,7 @@ newOrg = T(1:3,4);
 
 origin = [0;0;0];
 
-A = [1, 0, 0, 0;
-    0, 1, 0, 0;
-    0, 0, 1, 0;
-    0, 0, 0, 1];
+A = Transformation.eye(4);
 
 
 figure;
