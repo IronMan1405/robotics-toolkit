@@ -1,0 +1,4 @@
+- John J. Craig - Introduction to Robotics
+- Modern Robotics - Lynch & Park
+- Robot Modeling and Control - Spong
+- MATLAB Documentation
