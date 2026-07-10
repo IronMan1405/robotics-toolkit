@@ -6,3 +6,14 @@ T23 = DH(0,0,d3,0);
 T34 = DH(0,0,d4,theta4);
 
 T04 = simplify(T01 * T12 * T23 * T34)
+
+% or by using the FK() function
+
+DHTable = [0, L1, d1, theta1;
+    0, L2, 0, theta2;
+    0, 0, d3, 0;
+    0, 0, d4, theta4];
+
+[T, Frames] = FK(DHTable);
+
+simplify(T)

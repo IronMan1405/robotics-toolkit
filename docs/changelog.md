@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.3.0
+
+### Added
+- Generic `FK.m` function for serial manipulators using Standard DH parameters.
+- Support for arbitrary \(n\)-link kinematic chains through iterative transformation composition.
+- Automatic homogeneous transformation chaining from a DH table.
+
+### Improved
+- Generalized forward kinematics from hardcoded 2R/3R examples to a reusable algorithm.
+- Simplified the workflow for deriving forward kinematics of new robot configurations.
+
+### Verified
+- Generic forward kinematics against symbolic 2R and 3R analytical solutions.
+- Correct transformation chaining using the Standard DH convention.
+
+---
+
 ## v0.2.0
 
 ### Added
