@@ -13,3 +13,22 @@ DHTable = [0, L1, 0, theta1;
 [T, Frames] = FK(DHTable);
 
 simplify(T)
+
+% and plot each frame
+%dont forget to assign values to the syms using subs or just directly
+%assign values
+
+values = {theta1, theta2, L1, L2};
+nums   = {pi/4, pi/6, 0.1, 0.15};
+
+figure;
+hold on;
+grid on;
+axis equal;
+view(3);
+
+PlotFrame(eye(4));
+
+for i = 1:numel(Frames)
+    PlotFrame(double(subs(Frames{i}, values, nums)));
+end

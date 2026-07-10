@@ -10,5 +10,7 @@ function [T, Frames] = FK(DHTable)
         theta = DHTable(i,4);
 
         T = T * DH(alpha, a, d, theta);
+        
+        Frames{i} = T;
     end
 end
