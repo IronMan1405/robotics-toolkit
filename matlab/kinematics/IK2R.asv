@@ -1,0 +1,5 @@
+function [theta1, theta2] = IK2R(x,y, l1, l2)
+    r = sqrt(x^2 + y^2)
+    cTheta2 = (r^2-l1^2-l2^2)/2*l1*l2
+    sT
+end

@@ -34,29 +34,4 @@ for i = 1:numel(Frames)
 end
 
 % analytical IK
-x = 0.1
-y = 0.1
-l1 = 0.3
-l2 = 0.2
-
-[theta1_sol, theta2_sol] = IK2R(x, y, l1, l2)
-
-thetas = {theta1, theta2};
-sols = {theta1_sol, theta2_sol};
-
-DHTable_num = [
-    0, l1, 0, theta1_sol;
-    0, l2, 0, theta2_sol;
-];
-
-% verification using generic FK
-
-[T_verify, ~] = FK(DHTable_num);
-
-disp(T_verify(1:3,4))
-
-% verification using symbolic substitution
-
-T_num = subs(T_02, {theta1, theta2, L1, L2}, {theta1_sol, theta2_sol, l1, l2});
-
-T_num = double(T_num)
+theta1, theta2 = IK2R(0.1, 0.1, L)
