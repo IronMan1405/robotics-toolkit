@@ -15,3 +15,35 @@ DHTable = [0, L1, 0, theta1;
 [T, Frames] = FK(DHTable);
 
 simplify(T)
+
+% analytical IK
+l1 = 0.3;
+l2 = 0.2;
+l3 = 0.1;
+
+x = 0.4;
+y = 0.2;
+phi = pi/4;
+
+[theta1_sol, theta2_sol, theta3_sol] = IK3R(x, y, phi, l1, l2, l3)
+
+thetas = {theta1, theta2, theta3};
+sols = {theta1_sol, theta2_sol, theta3};
+
+DHTable_num = [
+    0, l1, 0, theta1_sol;
+    0, l2, 0, theta2_sol;
+    0, l3, 0, theta3_sol
+];
+
+% verification using generic FK
+
+[T_verify, ~] = FK(DHTable_num);
+
+disp(T_verify(1:3,4))
+
+% verification using symbolic substitution
+
+T_num = subs(T_03, {theta1, theta2, theta3, L1, L2, L3}, {theta1_sol, theta2_sol, theta3_sol, l1, l2, l3});
+
+T_num = double(T_num)

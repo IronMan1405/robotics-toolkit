@@ -34,10 +34,10 @@ for i = 1:numel(Frames)
 end
 
 % analytical IK
-x = 0.1
-y = 0.1
-l1 = 0.3
-l2 = 0.2
+x = 0.1;
+y = 0.1;
+l1 = 0.3;
+l2 = 0.2;
 
 [theta1_sol, theta2_sol] = IK2R(x, y, l1, l2)
 

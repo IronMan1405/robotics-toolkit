@@ -1,6 +1,0 @@
-function T = FK(DHTable)
-    T = Transformation.ey(4);
-    for i = 1:size(DHTable, 1)
-        T = T * Transformation.dhMatrix(DHTable(i, :));
-    end
-end
