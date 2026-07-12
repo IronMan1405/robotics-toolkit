@@ -34,3 +34,37 @@ PlotFrame(eye(4));
 for i = 1:numel(Frames)
     PlotFrame(double(subs(Frames{i}, values, nums)));
 end
+
+% analytical IK
+l1 = 0.30;
+l2 = 0.20;
+
+d1_val = 0.40;
+d4_val = 0.05;
+
+x   = 0.35;
+y   = 0.25;
+z   = 0.30;
+phi = pi/6;
+
+[theta1_sol, theta2_sol, theta4_sol, d3_sol] = IKSCARA(x, y, z, phi, l1, l2, d1_val, d4_val)
+
+params = {theta1, theta2, theta4, d3};
+sols = {theta1_sol, theta2_sol, theta4_sol, d3_sol};
+
+DHTable_num = [0, l1, d1_val, theta1_sol;
+    0, l2, 0, theta2_sol;
+    0, 0, d3_sol, 0;
+    0, 0, d4_val, theta4_sol];
+
+% verification using generic FK
+
+[T_verify, ~] = FK(DHTable_num);
+
+disp(T_verify(1:3,4))
+
+% verification using symbolic substitution
+
+T_num = subs(T04, {theta1, theta2, theta4, L1, L2, d1, d3, d4}, {theta1_sol, theta2_sol, theta4_sol, l1, l2, d1_val, d3_sol, d4_val});
+
+T_num = double(T_num)
