@@ -1,5 +1,27 @@
 # Changelog
 
+## v0.4.0
+
+### Added
+- Analytical inverse kinematics for a planar 2R manipulator (`IK2R.m`).
+- Analytical inverse kinematics for a planar 3R manipulator (`IK3R.m`) using wrist-center decomposition.
+- Analytical inverse kinematics for an RRPR SCARA manipulator (`IKSCARA.m`).
+
+### Improved
+- Adopted a modular inverse kinematics workflow by reusing `IK2R` for higher-DOF manipulators.
+- Verified analytical inverse kinematics by comparing solutions against forward kinematics.
+
+### Verified
+- 2R inverse kinematics against symbolic forward kinematics.
+- 3R inverse kinematics using end-effector position and orientation.
+- RRPR SCARA inverse kinematics using position (`x, y, z`) and orientation (`φ`).
+
+### TODO
+- Return all valid analytical solutions (e.g. elbow-up and elbow-down configurations) for inverse kinematics functions.
+- Add workspace and reachability checks before computing inverse kinematics.
+
+---
+
 ## v0.3.0
 
 ### Added
