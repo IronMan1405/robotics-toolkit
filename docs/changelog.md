@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.4.1
+
+### Added
+- Multiple analytical inverse kinematics solutions (elbow-up and elbow-down) for planar manipulators.
+- Reachability checks before solving analytical inverse kinematics.
+
+### Improved
+- Unified the inverse kinematics API by returning all valid joint configurations as a solution matrix.
+- Refactored `IK3R` and `IKSCARA` to build upon the updated `IK2R` implementation.
+
+### Verified
+- Multiple inverse kinematics solutions against forward kinematics.
+- Reachability validation for unreachable target poses.
+
+---
+
 ## v0.4.0
 
 ### Added

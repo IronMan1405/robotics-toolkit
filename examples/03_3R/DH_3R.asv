@@ -25,6 +25,8 @@ x = 0.4;
 y = 0.2;
 phi = pi/4;
 
+% [theta1_sol, theta2_sol, theta3_sol] = IK3R(x, y, phi, l1, l2, l3)
+
 Q = IK3R(x, y, phi, l1, l2, l3)
 
 for i = 1:size(Q,1)
