@@ -32,10 +32,6 @@
 - 3R inverse kinematics using end-effector position and orientation.
 - RRPR SCARA inverse kinematics using position (`x, y, z`) and orientation (`φ`).
 
-### TODO
-- Return all valid analytical solutions (e.g. elbow-up and elbow-down configurations) for inverse kinematics functions.
-- Add workspace and reachability checks before computing inverse kinematics.
-
 ---
 
 ## v0.3.0
