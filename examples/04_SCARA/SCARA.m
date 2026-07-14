@@ -73,3 +73,19 @@ for i = 1:size(Q,1)
     
     disp(norm(P_fk - P_sym))
 end
+
+
+% Visualize workspace by scattering end effector points across every
+% combination of joint angles across their limits
+
+% d3 (prismatic joint)
+
+vars = {theta1, theta2, d3};
+
+% theta4 range is omitted here because it only affects R and not P
+% proof: can be verified by looking at T
+jointRanges = {linspace(-pi/2, pi/2, 20), linspace(-pi, pi, 20), linspace(0, 0.25, 20)};
+
+DHTable_num = subs(DHTable, {L1, L2, d1, d4}, {l1, l2, d1_val, d4_val});
+
+WorkspaceVisualizerSCARA(DHTable_num, vars, jointRanges);

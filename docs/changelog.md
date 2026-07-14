@@ -1,5 +1,29 @@
 # Changelog
 
+## v0.5.0
+
+### Added
+- Workspace visualization utilities for serial manipulators.
+- Exhaustive joint-space sampling to compute reachable workspaces.
+- Workspace visualization examples for planar 2R and RRPR SCARA manipulators.
+- Optional coordinate frame visualization during workspace generation.
+
+### Improved
+- Introduced reusable workspace visualization functions independent of specific robot examples.
+- Adopted argument validation (`arguments` blocks) for visualization utilities.
+- Refined visualization workflow by separating robot geometry from joint-space sampling.
+
+### Verified
+- 2R reachable workspace against analytical reach limits.
+- RRPR SCARA reachable workspace using revolute and prismatic joint sweeps.
+- Forward kinematics integration across all sampled joint configurations.
+
+### Notes
+- Current workspace generation uses uniform grid sampling in joint space.
+- Higher-DOF manipulators incur exponential computational cost; future releases may introduce randomized sampling or parallelization.
+
+---
+
 ## v0.4.1
 
 ### Added

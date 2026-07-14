@@ -51,3 +51,13 @@ for i = 1:size(Q,1)
     
     disp(norm(P_fk - P_sym))
 end
+
+% Visualize workspace by scattering end effector points across every
+% combination of joint angles across their limits
+
+thetas = {theta1, theta2, theta3};
+jointRanges = {linspace(-pi/2, pi/2, 50), linspace(-pi, pi, 50), linspace(-pi, pi, 50)};
+
+DHTable_num = subs(DHTable, {L1, L2, L3}, {l1, l2, l3});
+
+WorkspaceVisualizer3R(DHTable_num, thetas, jointRanges);
